@@ -1,10 +1,27 @@
 import React, { Component } from "react";
 import "./App.css";
+import Search from "../Search";
+const { Provider, Consumer } = React.createContext();
 
-class App extends Component {
+export class App extends Component {
+  state = {
+    searchValue: "",
+    setSearchValue: e => this.setState({ searchValue: e.target.value })
+  };
+
+  componentDidMount() {
+    window.debug = () => console.log(this.state);
+  }
+
   render() {
-    return <div>test</div>;
+    return (
+      <Provider value={this.state}>
+        <Search />
+      </Provider>
+    );
   }
 }
 
-export default App;
+export const WithAppContext = ({ render }) => {
+  return <Consumer>{context => render(context)}</Consumer>;
+};
