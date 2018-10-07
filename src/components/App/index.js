@@ -28,7 +28,7 @@ export class App extends Component {
   render() {
     return (
       <Provider value={this.state}>
-        <div className="container">
+        <div className="container center">
           <Search />
         </div>
       </Provider>
