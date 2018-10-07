@@ -6,7 +6,7 @@ import behanceSearchRequest from "../../network-requests/behance-search";
 const { Provider, Consumer } = React.createContext();
 
 export class App extends Component {
-  debouncedBehanceSearchRequest = debounced(300, behanceSearchRequest);
+  debouncedBehanceSearchRequest = debounced(500, behanceSearchRequest);
 
   state = {
     searchValue: "",
