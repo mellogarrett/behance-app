@@ -6,7 +6,7 @@ import behanceSearchRequest from "../../network-requests/behance-search";
 const { Provider, Consumer } = React.createContext();
 
 export class App extends Component {
-  debouncedBehanceSearchRequest = debounced(600, behanceSearchRequest);
+  debouncedBehanceSearchRequest = debounced(300, behanceSearchRequest);
 
   state = {
     searchValue: "",
@@ -18,7 +18,8 @@ export class App extends Component {
         this.setState({ searchResults });
         callback();
       });
-    }
+    },
+    searchResults: []
   };
 
   componentDidMount() {
