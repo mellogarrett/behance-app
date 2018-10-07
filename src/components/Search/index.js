@@ -22,12 +22,18 @@ export default class Search extends Component {
           };
 
           return (
-            <div className="search--container">
+            <div className="search-container">
               <Typography variant="display3" gutterBottom>
                 Behance Search
               </Typography>
-              <div className="search--input">
-                {this.state.loading ? <CircularProgress /> : <SearchIcon />}
+              <div className="search-input">
+                {this.state.loading ? (
+                  <div className="search-input--loading-wrapper">
+                    <CircularProgress size={18} thickness={4} color="inherit" />
+                  </div>
+                ) : (
+                  <SearchIcon />
+                )}
                 <Input
                   fullWidth
                   disableUnderline
