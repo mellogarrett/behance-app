@@ -16,7 +16,12 @@ export default class Search extends Component {
   render() {
     return (
       <WithAppContext
-        render={({ searchValue, setSearchValue, searchResults }) => {
+        render={({
+          searchValue,
+          setSearchValue,
+          searchResults,
+          selectUser
+        }) => {
           const onChange = e => {
             this.setState({ loading: true });
             // once the search completes, set loading back to false
@@ -44,7 +49,11 @@ export default class Search extends Component {
                   onChange={onChange}
                 />
               </div>
-              <ResultsList results={searchResults} keyToDisplay="username" />
+              <ResultsList
+                results={searchResults}
+                keyToDisplay="username"
+                onClick={selectUser}
+              />
             </Card>
           );
         }}

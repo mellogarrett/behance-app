@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import Search from "../Search";
+import ProfilePage from "../ProfilePage";
 import debounced from "../../helpers/debounced";
 import behanceSearchRequest from "../../network-requests/behance-search";
 const { Provider, Consumer } = React.createContext();
@@ -19,7 +20,13 @@ export class App extends Component {
         callback();
       });
     },
-    searchResults: []
+    searchResults: [],
+    selectUser: id =>
+      this.setState({
+        selectedUser: this.state.searchResults
+          .filter(user => user.id === id)
+          .pop()
+      })
   };
 
   componentDidMount() {
@@ -29,9 +36,13 @@ export class App extends Component {
   render() {
     return (
       <Provider value={this.state}>
-        <div className="container center">
-          <Search />
-        </div>
+        {this.state.selectedUser ? (
+          <ProfilePage />
+        ) : (
+          <div className="container center">
+            <Search />
+          </div>
+        )}
       </Provider>
     );
   }
