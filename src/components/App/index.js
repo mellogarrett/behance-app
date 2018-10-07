@@ -10,13 +10,13 @@ export class App extends Component {
 
   state = {
     searchValue: "",
-    setSearchValue: e => {
-      this.setState({ searchValue: e.target.value }, () => {
-        // console.log(behanceSearchRequest(this.state.searchValue));
-        console.log(this.debouncedBehanceSearchRequest(this.state.searchValue));
-        this.debouncedBehanceSearchRequest(this.state.searchValue).then(
-          response => console.log(response)
+    setSearchValue: (e, callback) => {
+      this.setState({ searchValue: e.target.value }, async () => {
+        const searchResults = await this.debouncedBehanceSearchRequest(
+          this.state.searchValue
         );
+        this.setState({ searchResults });
+        callback();
       });
     }
   };
