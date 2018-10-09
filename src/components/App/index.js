@@ -21,8 +21,10 @@ export class App extends Component {
       });
     },
     searchResults: [],
-    selectUser: id =>
+    setSelectedUser: id =>
       this.setState({
+        searchValue: "",
+        searchResults: [],
         selectedUser: this.state.searchResults
           .filter(user => user.id === id)
           .pop()
@@ -31,6 +33,7 @@ export class App extends Component {
 
   componentDidMount() {
     window.debug = () => console.log(this.state);
+    window.state = () => this.state;
   }
 
   render() {

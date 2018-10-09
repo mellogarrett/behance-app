@@ -20,7 +20,7 @@ export default class Search extends Component {
           searchValue,
           setSearchValue,
           searchResults,
-          selectUser
+          setSelectedUser
         }) => {
           const onChange = e => {
             this.setState({ loading: true });
@@ -52,7 +52,7 @@ export default class Search extends Component {
               <ResultsList
                 results={searchResults}
                 keyToDisplay="username"
-                onClick={selectUser}
+                onClick={setSelectedUser}
               />
             </Card>
           );
