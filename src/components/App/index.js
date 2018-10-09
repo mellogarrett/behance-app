@@ -4,6 +4,7 @@ import Search from "../Search";
 import ProfilePage from "../ProfilePage";
 import debounced from "../../helpers/debounced";
 import behanceSearchRequest from "../../network-requests/behance-search";
+import mockUserData from "../../mock/user.json";
 const { Provider, Consumer } = React.createContext();
 
 export class App extends Component {
@@ -34,6 +35,7 @@ export class App extends Component {
   componentDidMount() {
     window.debug = () => console.log(this.state);
     window.state = () => this.state;
+    window.test = () => this.setState({ selectedUser: mockUserData });
   }
 
   render() {

@@ -7,6 +7,7 @@
 
 .profile-page--left {
   display: flex;
+  flex-direction: column;
   background-color: #222;
   color: #ddd;
   padding: 32px;
@@ -60,4 +61,21 @@
 
 .align-right {
   align-items: flex-end;
+}
+
+.profile-page--stats {
+  margin-top: 24px;
+  justify-content: end;
+}
+
+.profile-page--stats-grid {
+  display: grid;
+  grid-template-columns: auto max-content;
+  grid-template-rows: repeat(5, 20%);
+  grid-column-gap: 8px;
+}
+
+.profile-page--stats-label {
+  text-align: end;
+  font-weight: 600;
 }
