@@ -3,10 +3,7 @@ import "./ProfilePage.css";
 import { WithAppContext } from "../App";
 import "./ProfilePage.css";
 import Avatar from "@material-ui/core/Avatar";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
+import IconButton from "@material-ui/core/IconButton";
 import LocationIcon from "@material-ui/icons/LocationOn";
 import OpenInNewIcon from "@material-ui/icons/OpenInNew";
 import CancelIcon from "@material-ui/icons/Cancel";
@@ -15,7 +12,7 @@ import get from "../../helpers/get";
 
 export default () => (
   <WithAppContext
-    render={({ selectedUser }) => {
+    render={({ selectedUser, closeProfilePage }) => {
       const avatarUrl = get(selectedUser, ["images", "100"]);
       const location = get(selectedUser, ["location"]);
       const displayName = get(selectedUser, ["display_name"]);
@@ -26,20 +23,14 @@ export default () => (
       const views = get(selectedUser, ["stats", "views"]);
       const comments = get(selectedUser, ["stats", "comments"]);
 
-      const stats = {
-        followers: 788,
-        following: 0,
-        appreciations: 1153,
-        views: 14129,
-        comments: 0
-      };
-
       return (
         <>
-          <CancelIcon
+          <IconButton
+            onClick={closeProfilePage}
             className="profile-page--close"
-            style={{ fontSize: "36px" }}
-          />
+          >
+            <CancelIcon style={{ fontSize: "36px" }} />
+          </IconButton>
           <div className="profile-page--container">
             <div className="profile-page--left">
               <div className="profile-page--header">

@@ -44,10 +44,10 @@
 }
 
 .profile-page--close {
-  position: fixed;
+  position: fixed !important;
   top: 16px;
   left: 16px;
-  color: #eee;
+  color: #eee !important;
 }
 
 .stacked {

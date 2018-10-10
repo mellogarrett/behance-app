@@ -21,6 +21,7 @@ export class App extends Component {
         callback();
       });
     },
+    selectedUser: null,
     searchResults: [],
     setSelectedUser: id =>
       this.setState({
@@ -29,7 +30,8 @@ export class App extends Component {
         selectedUser: this.state.searchResults
           .filter(user => user.id === id)
           .pop()
-      })
+      }),
+    closeProfilePage: () => this.setState({ selectedUser: null })
   };
 
   componentDidMount() {
