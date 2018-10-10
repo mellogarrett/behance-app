@@ -3,18 +3,18 @@ import "./App.css";
 import Search from "../Search";
 import ProfilePage from "../ProfilePage";
 import debounced from "../../helpers/debounced";
-import behanceSearchRequest from "../../network-requests/behance-search";
+import userSearch from "../../network-requests/user-search";
 import mockUserData from "../../mock/user.json";
 const { Provider, Consumer } = React.createContext();
 
 export class App extends Component {
-  debouncedBehanceSearchRequest = debounced(500, behanceSearchRequest);
+  debouncedUserSearch = debounced(500, userSearch);
 
   state = {
     searchValue: "",
     setSearchValue: (e, callback) => {
       this.setState({ searchValue: e.target.value }, async () => {
-        const searchResults = await this.debouncedBehanceSearchRequest(
+        const searchResults = await this.debouncedUserSearch(
           this.state.searchValue
         );
         this.setState({ searchResults });

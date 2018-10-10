@@ -7,4 +7,4 @@ export default searchValue =>
         .get(
           `http://localhost:4000/users?client_id=dssemmf08U5GJTfD3sGC7iWfSvjanYaf&per_page=10&q=${searchValue}`
         )
-        .then(response => response.data.users);
+        .then(response => response.data.users.filter(u => u.username !== ""));

@@ -5,7 +5,6 @@ import "./ProfilePage.css";
 import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
 import LocationIcon from "@material-ui/icons/LocationOn";
-import OpenInNewIcon from "@material-ui/icons/OpenInNew";
 import CancelIcon from "@material-ui/icons/Cancel";
 import Typography from "@material-ui/core/Typography";
 import get from "../../helpers/get";
