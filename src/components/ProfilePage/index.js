@@ -8,6 +8,7 @@ import LocationIcon from "@material-ui/icons/LocationOn";
 import CancelIcon from "@material-ui/icons/Cancel";
 import Typography from "@material-ui/core/Typography";
 import get from "../../helpers/get";
+import Projects from "../ProfilePage-Projects";
 
 export default () => (
   <WithAppContext
@@ -70,7 +71,9 @@ export default () => (
               </div>
             </div>
 
-            <div className="profile-page--right">Links</div>
+            <div className="profile-page--right">
+              <Projects userId={selectedUser.id} />
+            </div>
           </div>
         </>
       );
