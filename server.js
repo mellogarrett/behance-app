@@ -8,13 +8,13 @@ app.use(cors());
 
 const proxy = async (req, res) => {
   try {
-    console.log(`https://api.behance.net/v2${req.url}`);
     const response = await axios
       .get(`https://api.behance.net/v2${req.url}`)
       .then(r => r.data);
     res.send(response);
   } catch (err) {
-    console.log(err);
+    const { statusText: message, status } = err.response;
+    res.status(status).send({ message });
   }
 };
 

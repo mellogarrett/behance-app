@@ -8,6 +8,7 @@ import CancelIcon from "@material-ui/icons/Cancel";
 import Typography from "@material-ui/core/Typography";
 import Stats from "../Stats";
 import Projects from "../Projects";
+import WorkExperience from "../WorkExperience";
 import get from "../../helpers/get";
 
 export default () => (
@@ -17,6 +18,7 @@ export default () => (
       const location = get(selectedUser, ["location"]);
       const displayName = get(selectedUser, ["display_name"]);
       const stats = get(selectedUser, ["stats"]);
+      const username = get(selectedUser, ["username"]);
 
       return (
         <>
@@ -54,8 +56,8 @@ export default () => (
                   justifyContent: "end"
                 }}
               />
+              <WorkExperience username={username} />
             </div>
-
             <div className="profile-page--right">
               <Projects userId={selectedUser.id} />
             </div>
