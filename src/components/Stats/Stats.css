@@ -1,0 +1,23 @@
+.stats-grid {
+  display: grid;
+  grid-template-columns: auto max-content;
+  grid-column-gap: 8px;
+}
+.stats-grid > .stats-label {
+  text-align: end;
+  font-weight: 600;
+}
+
+.stats-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.stats-list > .stats-item {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.stats-list > .stats-item > .stats-label {
+  font-weight: 600;
+  white-space: pre;
+}

@@ -1,14 +1,14 @@
 import React from "react";
 import "./ProfilePage.css";
 import { WithAppContext } from "../App";
-import "./ProfilePage.css";
 import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
 import LocationIcon from "@material-ui/icons/LocationOn";
 import CancelIcon from "@material-ui/icons/Cancel";
 import Typography from "@material-ui/core/Typography";
+import Stats from "../Stats";
+import Projects from "../Projects";
 import get from "../../helpers/get";
-import Projects from "../ProfilePage-Projects";
 
 export default () => (
   <WithAppContext
@@ -16,12 +16,7 @@ export default () => (
       const avatarUrl = get(selectedUser, ["images", "100"]);
       const location = get(selectedUser, ["location"]);
       const displayName = get(selectedUser, ["display_name"]);
-      // stats
-      const followers = get(selectedUser, ["stats", "followers"]);
-      const following = get(selectedUser, ["stats", "following"]);
-      const appreciations = get(selectedUser, ["stats", "appreciations"]);
-      const views = get(selectedUser, ["stats", "views"]);
-      const comments = get(selectedUser, ["stats", "comments"]);
+      const stats = get(selectedUser, ["stats"]);
 
       return (
         <>
@@ -36,7 +31,7 @@ export default () => (
               <div className="profile-page--header">
                 <div className="stacked center-vertical align-right">
                   <Typography
-                    variant="headline"
+                    variant="display1"
                     color="inherit"
                     style={{ fontWeight: "600" }}
                   >
@@ -51,24 +46,14 @@ export default () => (
                 </div>
                 <Avatar className="profile-page--avatar" src={avatarUrl} />
               </div>
-              <div className="profile-page--stats">
-                <div className="profile-page--stats-grid">
-                  <div className="profile-page--stats-label">Followers:</div>
-                  <div className="profile-page--stats-value">{followers}</div>
-                  <div className="profile-page--stats-label">Following:</div>
-                  <div className="profile-page--stats-value">{following}</div>
-                  <div className="profile-page--stats-label">
-                    Appreciations:
-                  </div>
-                  <div className="profile-page--stats-value">
-                    {appreciations}
-                  </div>
-                  <div className="profile-page--stats-label">Views:</div>
-                  <div className="profile-page--stats-value">{views}</div>
-                  <div className="profile-page--stats-label">Comments:</div>
-                  <div className="profile-page--stats-value">{comments}</div>
-                </div>
-              </div>
+              <Stats
+                centered
+                data={stats}
+                style={{
+                  marginTop: "16px",
+                  justifyContent: "end"
+                }}
+              />
             </div>
 
             <div className="profile-page--right">

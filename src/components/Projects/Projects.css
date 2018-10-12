@@ -1,0 +1,45 @@
+.projects {
+  height: 100%;
+  width: 100%;
+}
+
+.project-container {
+  padding: 0 32px 32px;
+}
+
+.project-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.projects-stats {
+  display: flex;
+  flex-direction: column;
+}
+
+.projects-stats--tags {
+  flex: 0 0 auto;
+  width: auto;
+}
+
+.projects-stats--tags > * {
+  margin: 0 4px;
+}
+
+.project-stats--img {
+  width: 115px;
+  height: 90px;
+}
+
+.project-link {
+  display: flex;
+  flex-direction: row;
+}
+
+.projects-title {
+  font-weight: 600 !important;
+  color: #222 !important;
+  margin-bottom: 12px !important;
+}

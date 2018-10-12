@@ -20,15 +20,17 @@
   background-color: #eee;
   padding: 32px;
   width: calc(60% - 64px);
-  height: calc(100% - 64px);
+  height: auto;
 }
 
 .profile-page--header {
   justify-content: flex-end;
   display: flex;
   flex-direction: row;
-  width: 100%;
+  width: calc(100% - 48px);
   height: 100px;
+  margin-left: 48px;
+  text-align: right;
 }
 
 .profile-page--container .profile-page--avatar {
@@ -45,8 +47,8 @@
 
 .profile-page--close {
   position: fixed !important;
-  top: 16px;
-  left: 16px;
+  top: 8px;
+  left: 8px;
   color: #eee !important;
 }
 
@@ -61,21 +63,4 @@
 
 .align-right {
   align-items: flex-end;
-}
-
-.profile-page--stats {
-  margin-top: 16px;
-  justify-content: end;
-}
-
-.profile-page--stats-grid {
-  display: grid;
-  grid-template-columns: auto max-content;
-  grid-template-rows: repeat(5, 20%);
-  grid-column-gap: 8px;
-}
-
-.profile-page--stats-label {
-  text-align: end;
-  font-weight: 600;
 }
