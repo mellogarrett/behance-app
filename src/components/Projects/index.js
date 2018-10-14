@@ -47,7 +47,7 @@ export default class Projects extends Component {
                 <ExpansionPanel
                   key={id}
                   expanded={this.state.expanded === index}
-                  onChange={this.setExpandedPanel.bind(undefined, id)}
+                  onChange={this.setExpandedPanel.bind(undefined, index)}
                 >
                   <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
                     <Typography variant="subheading">{name}</Typography>

@@ -20,6 +20,18 @@
   flex-direction: row;
 }
 
+.work-experience--line-two {
+  margin-right: 32px;
+}
+
+.work-experience--position {
+  font-weight: 600 !important;
+}
+
 .work-experience--typography {
   margin-left: 0.25em !important;
+}
+
+.work-experience--icon {
+  margin-left: 8px;
 }
