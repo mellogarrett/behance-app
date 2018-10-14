@@ -27,6 +27,7 @@ export default () => {
               let startDateObj = new Date();
               startDateObj.setMonth(month);
               startDateObj.setFullYear(year);
+              const startDateString = format(startDateObj, "MMM YYYY");
 
               return (
                 <div key={key} className="work-experience--item">
@@ -69,7 +70,7 @@ export default () => {
                       variant="subheading"
                       color="inherit"
                     >
-                      {format(startDateObj, "MMM YYYY")}
+                      {startDateString}
                     </Typography>
                   </div>
                 </div>
