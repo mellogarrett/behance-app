@@ -1,38 +1,70 @@
-import React, { Component } from "react";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
+import React from "react";
 import Typography from "@material-ui/core/Typography";
+import Icon from "@material-ui/core/Icon";
+import WorkIcon from "@material-ui/icons/Work";
 import "./WorkExperience.css";
-import getWorkExperience from "../../network-requests/get-work-experience";
+import { WithAppContext } from "../App";
 
-export default class WorkExperience extends Component {
-  state = {
-    workExperience: []
-  };
+export default () => {
+  return (
+    <WithAppContext
+      render={({ workExperience }) => {
+        return (
+          <div className="work-experience--container">
+            <Typography
+              variant="headline"
+              className="work-experience--title"
+              color="inherit"
+            >
+              Work Experience
+            </Typography>
+            {workExperience.map(each => {
+              const { position, organization, location, start_date } = each;
+              const key = Object.values(each).join("-");
 
-  componentWillMount = async () => {
-    try {
-      const { username } = this.props;
-      const workExperience = await getWorkExperience(username);
-      this.setState({ workExperience });
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  render() {
-    return (
-      <List>
-        {this.state.workExperience.map(each => {
-          const { position, organization, location, start_date } = each;
-
-          return (
-            <ListItem>
-              <Typography>{position}</Typography>
-            </ListItem>
-          );
-        })}
-      </List>
-    );
-  }
-}
+              return (
+                <div key={key} className="work-experience--item">
+                  <div className="work-experience--line-one">
+                    <Icon>
+                      <WorkIcon />
+                    </Icon>
+                    <Typography
+                      className="work-experience--typography"
+                      variant="title"
+                      color="inherit"
+                    >
+                      {position},
+                    </Typography>
+                    <Typography
+                      className="work-experience--typography"
+                      variant="title"
+                      color="inherit"
+                    >
+                      {organization}
+                    </Typography>
+                  </div>
+                  <div className="work-experience--line-two">
+                    <Typography
+                      className="work-experience--typography"
+                      variant="subheading"
+                      color="inherit"
+                    >
+                      {location}
+                    </Typography>
+                    <Typography
+                      className="work-experience--typography"
+                      variant="subheading"
+                      color="inherit"
+                    >
+                      {start_date}
+                    </Typography>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        );
+      }}
+    />
+  );
+};

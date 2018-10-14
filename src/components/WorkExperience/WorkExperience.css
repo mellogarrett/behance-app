@@ -1,0 +1,25 @@
+.work-experience--container {
+  text-align: right;
+}
+
+.work-experience--title {
+  font-weight: 600 !important;
+}
+
+.work-experience--item {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  color: #eee !important;
+}
+
+.work-experience--line-one,
+.work-experience--line-two {
+  display: flex;
+  flex-direction: row;
+}
+
+.work-experience--typography {
+  margin-left: 0.25em !important;
+}

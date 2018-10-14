@@ -6,6 +6,7 @@ import IconButton from "@material-ui/core/IconButton";
 import LocationIcon from "@material-ui/icons/LocationOn";
 import CancelIcon from "@material-ui/icons/Cancel";
 import Typography from "@material-ui/core/Typography";
+import Divider from "@material-ui/core/Divider";
 import Stats from "../Stats";
 import Projects from "../Projects";
 import WorkExperience from "../WorkExperience";
@@ -56,6 +57,7 @@ export default () => (
                   justifyContent: "end"
                 }}
               />
+              <Divider className="profile-page--divider" />
               <WorkExperience username={username} />
             </div>
             <div className="profile-page--right">
