@@ -1,0 +1,12 @@
+.followers-following--container {
+  margin-top: 32px;
+}
+
+.followers-following--tabs {
+  margin: 0 -32px;
+  background-color: #333;
+}
+
+.followers-following--tab-indicator {
+  background-color: #eee !important;
+}

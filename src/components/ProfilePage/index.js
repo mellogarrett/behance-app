@@ -10,6 +10,7 @@ import Divider from "@material-ui/core/Divider";
 import Stats from "../Stats";
 import Projects from "../Projects";
 import WorkExperience from "../WorkExperience";
+import FollowersAndFollowing from "../FollowersAndFollowing";
 import get from "../../helpers/get";
 
 export default () => (
@@ -59,6 +60,7 @@ export default () => (
               />
               <Divider className="profile-page--divider" />
               <WorkExperience username={username} />
+              <FollowersAndFollowing />
             </div>
             <div className="profile-page--right">
               <Projects userId={selectedUser.id} />
