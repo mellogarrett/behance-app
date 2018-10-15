@@ -57,7 +57,13 @@ export class App extends Component {
       this.setState({ following });
     },
     closeProfilePage: () =>
-      this.setState({ selectedUser: null, projects: [], workExperience: [] })
+      this.setState({
+        selectedUser: null,
+        projects: [],
+        workExperience: [],
+        followers: [],
+        following: []
+      })
   };
 
   componentDidMount() {
