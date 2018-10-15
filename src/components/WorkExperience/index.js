@@ -22,26 +22,31 @@ export default () => {
             {workExperience.map(each => {
               const { position, organization, location, start_date } = each;
               const key = Object.values(each).join("-");
-              const month = parseInt(start_date.slice(0, 2)) - 1;
-              const year = parseInt(start_date.slice(-4));
-              let startDateObj = new Date();
-              startDateObj.setMonth(month);
-              startDateObj.setFullYear(year);
-              const startDateString = format(startDateObj, "MMM YYYY");
+
+              // start_date
+              let month, year, startDateObj, startDateString;
+              if (start_date) {
+                month = parseInt(start_date.slice(0, 2)) - 1;
+                year = parseInt(start_date.slice(-4));
+                startDateObj = new Date();
+                startDateObj.setMonth(month);
+                startDateObj.setFullYear(year);
+                startDateString = format(startDateObj, "MMM YYYY");
+              }
 
               return (
                 <div key={key} className="work-experience--item">
                   <div className="work-experience--line-one">
                     <Typography
                       className="work-experience--typography work-experience--position"
-                      variant="title"
+                      variant="subheading"
                       color="inherit"
                     >
                       {position},
                     </Typography>
                     <Typography
                       className="work-experience--typography"
-                      variant="title"
+                      variant="subheading"
                       color="inherit"
                     >
                       {organization}
@@ -58,20 +63,24 @@ export default () => {
                     >
                       {location}
                     </Typography>
-                    <Typography
-                      className="work-experience--typography"
-                      variant="subheading"
-                      color="inherit"
-                    >
-                      —
-                    </Typography>
-                    <Typography
-                      className="work-experience--typography"
-                      variant="subheading"
-                      color="inherit"
-                    >
-                      {startDateString}
-                    </Typography>
+                    {startDateString && (
+                      <>
+                        <Typography
+                          className="work-experience--typography"
+                          variant="subheading"
+                          color="inherit"
+                        >
+                          —
+                        </Typography>
+                        <Typography
+                          className="work-experience--typography"
+                          variant="subheading"
+                          color="inherit"
+                        >
+                          {startDateString}
+                        </Typography>
+                      </>
+                    )}
                   </div>
                 </div>
               );

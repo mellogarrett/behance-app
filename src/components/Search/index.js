@@ -50,9 +50,10 @@ export default class Search extends Component {
                 />
               </div>
               <ResultsList
+                isButton
                 results={searchResults}
                 keyToDisplay="username"
-                onClick={setSelectedUser}
+                onClick={[setSelectedUser, "id"]}
               />
             </Card>
           );

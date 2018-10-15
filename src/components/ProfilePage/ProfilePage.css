@@ -1,7 +1,7 @@
 .profile-page--container {
   display: flex;
   flex-direction: row;
-  height: 100%;
+  min-height: 100%;
   width: 100%;
 }
 
@@ -17,7 +17,6 @@
   color: #ddd;
   padding: 32px;
   width: calc(40% - 64px);
-  height: calc(100% - 64px);
 }
 
 .profile-page--right {

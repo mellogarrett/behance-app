@@ -6,7 +6,7 @@ it("should resolve an empty search to an empty array", () => {
 
 it("should resolve a non-empty search to an array with results", () => {
   expect(
-    userSearch("a").then(result => result.length)
+    userSearch("al").then(result => result.length)
   ).resolves.toBeGreaterThan(0);
 });
 

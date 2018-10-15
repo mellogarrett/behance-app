@@ -1,7 +1,6 @@
 import axios from "axios";
 
 export default searchValue => {
-  console.log({ search: searchValue.trim() });
   return searchValue.trim() === ""
     ? Promise.resolve([])
     : axios

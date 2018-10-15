@@ -1,12 +1,14 @@
 import React, { Component } from "react";
+import mockState from "../../mock/state.json";
 import "./App.css";
 import Search from "../Search";
 import ProfilePage from "../ProfilePage";
 import debounced from "../../helpers/debounced";
 import userSearch from "../../network-requests/user-search";
 import getProjectsForUser from "../../network-requests/get-projects-for-user";
-import mockState from "../../mock/state.json";
 import getWorkExperienceForUser from "../../network-requests/get-work-experience-for-user";
+import getFollowersForUser from "../../network-requests/get-followers-for-user";
+import getFollowingForUser from "../../network-requests/get-following-for-user";
 const { Provider, Consumer } = React.createContext();
 
 export class App extends Component {
@@ -27,6 +29,8 @@ export class App extends Component {
     searchResults: [],
     projects: [],
     workExperience: [],
+    followers: [],
+    following: [],
     setSelectedUser: async id => {
       const selectedUser = this.state.searchResults
         .filter(user => user.id === id)
@@ -46,7 +50,11 @@ export class App extends Component {
       );
       this.setState({ workExperience });
       // get & set followers
+      const followers = await getFollowersForUser(selectedUser.username);
+      this.setState({ followers });
       // get & set following
+      const following = await getFollowingForUser(selectedUser.username);
+      this.setState({ following });
     },
     closeProfilePage: () =>
       this.setState({ selectedUser: null, projects: [], workExperience: [] })

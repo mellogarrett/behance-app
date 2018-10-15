@@ -10,3 +10,7 @@
 .followers-following--tab-indicator {
   background-color: #eee !important;
 }
+
+.followers-following--list-item > * {
+  color: #eee !important;
+}

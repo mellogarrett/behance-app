@@ -3,17 +3,31 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 
-export default ({ results, keyToDisplay, onClick }) => {
+export default ({
+  results,
+  keyToDisplay,
+  onClick = [],
+  isButton,
+  textClass
+}) => {
+  const [fn, boundProperty] = onClick;
+
   return (
     <List>
       {results.map(result => (
         <ListItem
           key={result.id}
-          button
+          button={isButton}
           dense
-          onClick={onClick.bind(undefined, result.id)}
+          onClick={
+            fn && boundProperty
+              ? fn.bind(undefined, result[boundProperty])
+              : null
+          }
         >
-          <ListItemText>{result[keyToDisplay]}</ListItemText>
+          <ListItemText classes={{ root: textClass }}>
+            {result[keyToDisplay]}
+          </ListItemText>
         </ListItem>
       ))}
     </List>
